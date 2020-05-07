@@ -1,0 +1,59 @@
+@{
+    ViewData["Title"] = "Addition Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Caleb SquareRoot Application</h1>
+    
+</div>
+
+@{
+    
+    if(ViewBag.SquareRootSecond != null){
+
+            if (ViewBag.squareRootSecond != null) {
+                if (ViewBag.squareRootFirst != null) {
+                    if (ViewBag.squareRootFirst > ViewBag.squareRootSecond)
+                    {
+                        <p>The number @ViewBag.numberOne with Square Root @ViewBag.squareRootFirst has a higher square root than the number @ViewBag.numberTwo with square root @ViewBag.squareRootSecond</p>
+                    }
+                    else if (ViewBag.squareRootSecond > ViewBag.squareRootFirst) {
+                        <p>The number @ViewBag.numberTwo with Square Root @ViewBag.squareRootSecond has a higher square root than the number @ViewBag.numberOne with square root @ViewBag.squareRootFirst</p>
+                    }
+                    else if (ViewBag.squareRootSecond == ViewBag.squareRootFirst) {
+                        <p>The Square root of the two numbers are the same.....Please refresh the page to enter two unique numbers</p>
+                    }
+                    else if (ViewBag.numberOne < 0) {
+                        <p>The number entered in the First Textbox is a Negative Number...Please refresh the Page to enter a Positive Number</p>         
+                    }
+                    else if (ViewBag.numberTwo < 0) {
+                        <p>The number entered in the Second Textbox is a Negative Number...Please refresh the Page to enter a Positive Number</p>         
+                    }
+                    else if (ViewBag.numberOne == "") {
+                        <p>Please enter a number in the First Text Field</p>         
+                    }
+                else if (ViewBag.numberTwo == "") {
+                    <p>Please enter a number in the Second Text Field</p>         
+                }
+            }
+        }
+    }
+
+}
+
+<div>
+
+   <form asp-controller= "SquareRoot" asp-action="Root" method="POST">
+
+   <input type="number" placeholder="First Number" name="firstNumber"/>
+
+   <div></div>
+
+   <input type="number" placeholder="Second Number" name="secondNumber"/>
+
+   <div></div>
+
+   <button type="submit">Submit</button>
+
+   </form>
+</div>
